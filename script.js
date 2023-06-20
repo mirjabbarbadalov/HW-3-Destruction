@@ -78,20 +78,30 @@ const characters = [
   }
 ];
 
-charactersShortInfo = [];
+// charactersShortInfo = [];
 
-for (const { name, lastName, age } of characters) {
+// for (const { name, lastName, age } of characters) {
 
-  const newObj = {
-    name,
-    lastName,
-    age
-  }
+//   const newObj = {
+//     name,
+//     lastName,
+//     age
+//   }
 
-  charactersShortInfo.push(newObj);
-}
+//   charactersShortInfo.push(newObj);
+// }
+
+// console.log(charactersShortInfo);
+
+
+let charactersShortInfo = characters.map(character => ({
+  name: character.name,
+  lastName: character.lastName,
+  age: character.age
+}));
 
 console.log(charactersShortInfo);
+
 
 
 
@@ -102,7 +112,7 @@ const user1 = {
   years: 30
 };
 
-const  {name, years: age, isAdmin = false} = user1
+const { name, years: age, isAdmin = false } = user1
 
 console.log(name, age, isAdmin);
 
@@ -117,7 +127,7 @@ const satoshi2020 = {
   country: 'Japan',
   birth: '1979-08-21',
   location: {
-    lat: 38.869422, 
+    lat: 38.869422,
     lng: 139.876632
   }
 }
@@ -134,7 +144,7 @@ const satoshi2019 = {
 
 const satoshi2018 = {
   name: 'Satoshi',
-  surname: 'Nakamoto', 
+  surname: 'Nakamoto',
   technology: 'Bitcoin',
   country: 'Japan',
   browser: 'Tor',
@@ -171,11 +181,9 @@ const bookToAdd = {
   author: 'George R. R. Martin'
 }
 
-let newBooksArr = [...books];
+newBooksArr = [...books, bookToAdd];
 console.log(newBooksArr);
 
-newBooksArr.push(bookToAdd);
-console.log(newBooksArr);
 
 
 
@@ -187,11 +195,10 @@ const employee = {
 }
 
 let newEmployee = {
-  ...employee
+  ...employee,
+  salary: 500,
+  age: 19
 }
-
-newEmployee.salary = 500;
-newEmployee.age = 19;
 
 console.log(newEmployee);
 
@@ -201,7 +208,7 @@ console.log(newEmployee);
 
 const array = ['value', () => 'showValue'];
 
-const  [value, showValue] = array;
+const [value, showValue] = array;
 
 alert(value); // should output 'value'
 alert(showValue()); // should output 'showValue'
